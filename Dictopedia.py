@@ -281,11 +281,9 @@ combostyle.theme_create('combostyle', parent='alt',
                         )
 combostyle.theme_use('combostyle')
 
-entry_1 = ttk.Combobox(
-    window,
-    font=("Calibri 14 bold"),
-    value = history
-)
+entry_1 = ttk.Combobox(window,
+                        font = ("Calibri 14 bold"),
+                        value = history)
 entry_1.place(
     x=131.0,
     y=189.00000774860382,
