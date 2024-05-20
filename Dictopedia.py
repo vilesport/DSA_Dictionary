@@ -155,6 +155,7 @@ def table_place():
 window = Tk()
 
 window.geometry("1024x640")
+window.title("DICTOPEDIA")
 window.configure(bg = "#FEFAF6")
 
 button_image_1 = PhotoImage(
