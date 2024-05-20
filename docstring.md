@@ -26,3 +26,17 @@
       - `word (str)`: The word to search for in the Trie.
     - Returns:
       - `node.data (list)`: The data associated with the word if it exists, otherwise None.
+  - `suggest(self, node, prefix, num, current)`: Helper function to suggest words with a given prefix.
+    - Args:
+      - `node (TrieNode)`: The current TrieNode.
+      - `prefix (str)`: The current prefix being formed.
+      - `num (int)`: The maximum number of suggestions required.
+      - `current (int)`: The current count of suggestions.
+    - Returns:
+      - `words (list)`: A list of tuples containing the suggested words and their associated data.
+  - `autocomplete(self, prefix, num)`: Autocompletes words based on a given prefix.
+    - Args:
+      - `prefix (str)`: The prefix to autocomplete.
+      - `num (int)`: The maximum number of autocompletions to return.
+    - Returns:
+      - `(list)`: A list of tuples containing the autocompleted words and their associated data.
