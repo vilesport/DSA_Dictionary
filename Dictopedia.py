@@ -7,6 +7,7 @@ from tkinter import Tk, Button, PhotoImage, ttk, scrolledtext
 """
     Init database - Trie
 """
+
 a_v = open('./database/dba-v.json', encoding = 'utf-8')
 v_a = open('./database/dbv-a.json', encoding = 'utf-8')
 
@@ -260,15 +261,15 @@ def typing(event):
 combostyle = ttk.Style()
 
 combostyle.theme_create('combostyle', parent='alt',
-                         settings = {'TCombobox':
-                                     {'configure':
-                                      {'fieldbackground': '#DAC0A3',
-                                       'foreground' : '#102C57',
-                                       'background' : '#DAC0A3',
-                                       'selectbackground' : 'DimGray',
-                                       'font' : "Calibri 14 bold",
-                                       }}}
-                         )
+                        settings = {'TCombobox':
+                                    {'configure':
+                                    {'fieldbackground': '#DAC0A3',
+                                    'foreground' : '#102C57',
+                                    'background' : '#DAC0A3',
+                                    'selectbackground' : 'DimGray',
+                                    'font' : "Calibri 14 bold",
+                                    }}}
+                        )
 combostyle.theme_use('combostyle')
 
 entry_1 = ttk.Combobox(
@@ -298,5 +299,9 @@ table = scrolledtext.ScrolledText(window,
 
 table_place()
 
-window.resizable(False, False)
-window.mainloop()
+def main():
+    window.resizable(False, False)
+    window.mainloop()
+
+if __name__ == '__main__':
+    main()
