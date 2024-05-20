@@ -7,8 +7,7 @@
 **TRIE**
 ---
 
-- `TrieNode` :
-  ```
+- `TrieNode` : ```
   A node in the Trie structure.
             
   Attributes:
