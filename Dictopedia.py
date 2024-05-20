@@ -8,6 +8,11 @@ from tkinter import Tk, Button, PhotoImage, ttk, scrolledtext
     Init database - Trie
 """
 
+tutorial = """
+Press DOWN to see suggestions.\n
+It also shows the history when no characters are typed.\n
+Reclick or press ESCAPE after pressing DOWN to continue typing.
+"""
 a_v = open('./database/dba-v.json', encoding = 'utf-8')
 v_a = open('./database/dbv-a.json', encoding = 'utf-8')
 
@@ -219,7 +224,6 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
     relief="flat"
 )
 button_4.place(
@@ -235,7 +239,6 @@ button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
     relief="flat"
 )
 button_5.place(
@@ -245,7 +248,10 @@ button_5.place(
     height=43.37897354082554
 )
 
-def typing(event):
+VK_ESCAPE = 0x1B
+VK_DOWN = 0x28
+
+def release(event):
     global mode
     word = event.widget.get().lower()
     if word == '':
@@ -267,6 +273,8 @@ combostyle.theme_create('combostyle', parent='alt',
                                     {'fieldbackground': '#DAC0A3',
                                     'foreground' : '#102C57',
                                     'background' : '#DAC0A3',
+                                    'dropdown_fg_color' : "#102C57",
+                                    'dropdown_background_color' : "#DAC0A3",
                                     'selectbackground' : 'DimGray',
                                     'font' : "Calibri 14 bold",
                                     }}}
@@ -285,19 +293,21 @@ entry_1.place(
     height=28.0
 )
 
-entry_1.bind('<KeyRelease>', typing)
-entry_1.bind('<Button-1>', typing)
+entry_1.bind('<KeyRelease>', release)
+entry_1.bind('<Button-1>', release)
 entry_1.bind('<Return>', Search_alt)
 
 table = scrolledtext.ScrolledText(window, 
                                 width = 678,  
-                                height = 333,  
+                                height = 333,
                                 background="#DAC0A3",
                                 foreground="#102C57",
                                 selectbackground='DimGray',
                                 font=("Calibri 14 bold"),
                                 )
 
+table.insert(TKB.INSERT, tutorial)
+table.configure(state="disabled")
 table_place()
 
 def main():
